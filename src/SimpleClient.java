@@ -31,13 +31,16 @@ public class SimpleClient {
             {
                 in_msg = buf_in.readLine();
                 System.out.println(in_msg);
-
+                if(in_msg.equals("exit")) break;
+                System.out.print("me:");
                 out_msg=buf_out.readLine();
-                if(out_msg.equals("exit"))
+                if(out_msg.equals("exit")) {
+                    pr_wri.println(out_msg);
                     break;
+                }
                 pr_wri.println("client:"+out_msg);
             }
-            pr_wri.println("client와의 접속이 종료되었습니다.");
+            System.out.println("server와의 접속이 종료되었습니다.");
             pr_wri.close();
             sock_1.close();
         }catch (Exception e) {

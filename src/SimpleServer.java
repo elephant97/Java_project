@@ -29,18 +29,20 @@ public class SimpleServer {
             while(true){
                 in_msg= buf_in.readLine();
                 System.out.println(in_msg);
+                if(in_msg.equals("exit")) break;
+                System.out.print("me:");
                 out_msg= buf_out.readLine();
-                if(out_msg.equals("exit"))
+                if(out_msg.equals("exit")) {
+                    prin_wri.println(out_msg);
                     break;
+                }
                 prin_wri.println("sever:"+out_msg);
             }
-            prin_wri.println("sever와의 접속이 종료되었습니다.");
+            System.out.println("client와의 접속이 종료되었습니다.");
             prin_wri.close();
             sock_1.close();
         }catch(IOException ie){
             ie.printStackTrace();
-            //prin_wri.close();
-            //sock_1.close();
         }
     }
 }
