@@ -13,9 +13,16 @@ public class SimpleServer {
         Socket sock_1 = null;
         String in_msg = null;
         String out_msg = null;
+        int port = 5434;
 
         try{
-            svr_sock = new ServerSocket(5434);
+            svr_sock = new ServerSocket(port);
+        }catch(IOException e){
+            System.out.println("Socket port already opened["+port+"]");
+            e.printStackTrace();
+            return;
+        }
+        try{
             System.out.println("서버 실행 중..");
             sock_1 = svr_sock.accept();
             in_str=sock_1.getInputStream();

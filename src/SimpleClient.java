@@ -1,10 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 public class SimpleClient {
@@ -17,6 +11,8 @@ public class SimpleClient {
         BufferedWriter buf_wri = null;
         PrintWriter pr_wri = null;
         String out_msg = null;
+        int port = 5434;
+
 
         try{
             Socket sock_1 = new Socket("127.0.0.1",5434);
